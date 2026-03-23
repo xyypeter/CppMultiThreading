@@ -1,4 +1,5 @@
-﻿#include <stdio.h>
+﻿//Windows上创建线程示例
+#include <stdio.h>
 #include <windows.h>
 DWORD WINAPI ThreadProc(LPVOID lpParameters) {
     while (true) {
