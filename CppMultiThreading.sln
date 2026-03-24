@@ -19,6 +19,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "06_Cpp11ThreadWait", "06_Cp
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "07_CppThread_InstancePointer", "07_CppThread_InstancePointer\07_CppThread_InstancePointer.vcxproj", "{AC70EC3F-0691-486D-9822-83078072958F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "08_CppThreadStaticToInstanceDemo", "08_CppThreadStaticToInstanceDemo\08_CppThreadStaticToInstanceDemo.vcxproj", "{FD0C6BCC-BCAE-47AB-BEF6-BEDC31267D95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -91,6 +93,14 @@ Global
 		{AC70EC3F-0691-486D-9822-83078072958F}.Release|x64.Build.0 = Release|x64
 		{AC70EC3F-0691-486D-9822-83078072958F}.Release|x86.ActiveCfg = Release|Win32
 		{AC70EC3F-0691-486D-9822-83078072958F}.Release|x86.Build.0 = Release|Win32
+		{FD0C6BCC-BCAE-47AB-BEF6-BEDC31267D95}.Debug|x64.ActiveCfg = Debug|x64
+		{FD0C6BCC-BCAE-47AB-BEF6-BEDC31267D95}.Debug|x64.Build.0 = Debug|x64
+		{FD0C6BCC-BCAE-47AB-BEF6-BEDC31267D95}.Debug|x86.ActiveCfg = Debug|Win32
+		{FD0C6BCC-BCAE-47AB-BEF6-BEDC31267D95}.Debug|x86.Build.0 = Debug|Win32
+		{FD0C6BCC-BCAE-47AB-BEF6-BEDC31267D95}.Release|x64.ActiveCfg = Release|x64
+		{FD0C6BCC-BCAE-47AB-BEF6-BEDC31267D95}.Release|x64.Build.0 = Release|x64
+		{FD0C6BCC-BCAE-47AB-BEF6-BEDC31267D95}.Release|x86.ActiveCfg = Release|Win32
+		{FD0C6BCC-BCAE-47AB-BEF6-BEDC31267D95}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
