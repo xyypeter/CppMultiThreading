@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36603.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppMultiThreading", "CppMultiThreading\CppMultiThreading.vcxproj", "{6FC615FA-91E5-4308-88DB-7DC620BAD1D1}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01_WindowsCreateThreadDemo", "01_WindowsCreateThreadDemo\01_WindowsCreateThreadDemo.vcxproj", "{E24455F3-D470-46B4-8CD8-5A722AA6D339}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02_WinCRT_beginthreadDemo", "02_WinCRT_beginthreadDemo\02_WinCRT_beginthreadDemo.vcxproj", "{75750EB2-A608-41F5-A52E-AD35C7868E9D}"
@@ -35,14 +33,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6FC615FA-91E5-4308-88DB-7DC620BAD1D1}.Debug|x64.ActiveCfg = Debug|x64
-		{6FC615FA-91E5-4308-88DB-7DC620BAD1D1}.Debug|x64.Build.0 = Debug|x64
-		{6FC615FA-91E5-4308-88DB-7DC620BAD1D1}.Debug|x86.ActiveCfg = Debug|Win32
-		{6FC615FA-91E5-4308-88DB-7DC620BAD1D1}.Debug|x86.Build.0 = Debug|Win32
-		{6FC615FA-91E5-4308-88DB-7DC620BAD1D1}.Release|x64.ActiveCfg = Release|x64
-		{6FC615FA-91E5-4308-88DB-7DC620BAD1D1}.Release|x64.Build.0 = Release|x64
-		{6FC615FA-91E5-4308-88DB-7DC620BAD1D1}.Release|x86.ActiveCfg = Release|Win32
-		{6FC615FA-91E5-4308-88DB-7DC620BAD1D1}.Release|x86.Build.0 = Release|Win32
 		{E24455F3-D470-46B4-8CD8-5A722AA6D339}.Debug|x64.ActiveCfg = Debug|x64
 		{E24455F3-D470-46B4-8CD8-5A722AA6D339}.Debug|x64.Build.0 = Debug|x64
 		{E24455F3-D470-46B4-8CD8-5A722AA6D339}.Debug|x86.ActiveCfg = Debug|Win32
