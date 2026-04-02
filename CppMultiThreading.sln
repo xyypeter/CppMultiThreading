@@ -31,6 +31,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "13_WindowsMutexDemo", "13_W
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "14_WindowsSemaphoreDemo", "14_WindowsSemaphoreDemo\14_WindowsSemaphoreDemo.vcxproj", "{512C06EB-FB0E-4E79-895C-C7E45950F4B8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "15_WindowsSRWLock", "15_WindowsSRWLock\15_WindowsSRWLock.vcxproj", "{4CF2FDDE-85A5-4915-BFE5-D3A70F76C556}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -151,6 +153,14 @@ Global
 		{512C06EB-FB0E-4E79-895C-C7E45950F4B8}.Release|x64.Build.0 = Release|x64
 		{512C06EB-FB0E-4E79-895C-C7E45950F4B8}.Release|x86.ActiveCfg = Release|Win32
 		{512C06EB-FB0E-4E79-895C-C7E45950F4B8}.Release|x86.Build.0 = Release|Win32
+		{4CF2FDDE-85A5-4915-BFE5-D3A70F76C556}.Debug|x64.ActiveCfg = Debug|x64
+		{4CF2FDDE-85A5-4915-BFE5-D3A70F76C556}.Debug|x64.Build.0 = Debug|x64
+		{4CF2FDDE-85A5-4915-BFE5-D3A70F76C556}.Debug|x86.ActiveCfg = Debug|Win32
+		{4CF2FDDE-85A5-4915-BFE5-D3A70F76C556}.Debug|x86.Build.0 = Debug|Win32
+		{4CF2FDDE-85A5-4915-BFE5-D3A70F76C556}.Release|x64.ActiveCfg = Release|x64
+		{4CF2FDDE-85A5-4915-BFE5-D3A70F76C556}.Release|x64.Build.0 = Release|x64
+		{4CF2FDDE-85A5-4915-BFE5-D3A70F76C556}.Release|x86.ActiveCfg = Release|Win32
+		{4CF2FDDE-85A5-4915-BFE5-D3A70F76C556}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
