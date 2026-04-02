@@ -25,6 +25,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "10_Cpp11AtomicDemo", "10_Cp
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "11_WindowsCriticalSectionDemo", "11_WindowsCriticalSectionDemo\11_WindowsCriticalSectionDemo.vcxproj", "{99B65FC5-1725-43EC-8DC4-FC6063C9BB90}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "12_WindowsEventDemo", "12_WindowsEventDemo\12_WindowsEventDemo.vcxproj", "{E37B4AC4-8285-4AE9-89BF-831735D4ED49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -121,6 +123,14 @@ Global
 		{99B65FC5-1725-43EC-8DC4-FC6063C9BB90}.Release|x64.Build.0 = Release|x64
 		{99B65FC5-1725-43EC-8DC4-FC6063C9BB90}.Release|x86.ActiveCfg = Release|Win32
 		{99B65FC5-1725-43EC-8DC4-FC6063C9BB90}.Release|x86.Build.0 = Release|Win32
+		{E37B4AC4-8285-4AE9-89BF-831735D4ED49}.Debug|x64.ActiveCfg = Debug|x64
+		{E37B4AC4-8285-4AE9-89BF-831735D4ED49}.Debug|x64.Build.0 = Debug|x64
+		{E37B4AC4-8285-4AE9-89BF-831735D4ED49}.Debug|x86.ActiveCfg = Debug|Win32
+		{E37B4AC4-8285-4AE9-89BF-831735D4ED49}.Debug|x86.Build.0 = Debug|Win32
+		{E37B4AC4-8285-4AE9-89BF-831735D4ED49}.Release|x64.ActiveCfg = Release|x64
+		{E37B4AC4-8285-4AE9-89BF-831735D4ED49}.Release|x64.Build.0 = Release|x64
+		{E37B4AC4-8285-4AE9-89BF-831735D4ED49}.Release|x86.ActiveCfg = Release|Win32
+		{E37B4AC4-8285-4AE9-89BF-831735D4ED49}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
