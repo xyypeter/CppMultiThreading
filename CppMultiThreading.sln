@@ -35,6 +35,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "15_WindowsSRWLock", "15_Win
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "16_WindowsConditionVariable", "16_WindowsConditionVariable\16_WindowsConditionVariable.vcxproj", "{B27BA389-FDA7-4D46-A863-166CD83D42DD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "17_CppStdMutex", "17_CppStdMutex\17_CppStdMutex.vcxproj", "{BFADBB26-99B6-42FB-AC1E-B2BAE84481B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -171,6 +173,14 @@ Global
 		{B27BA389-FDA7-4D46-A863-166CD83D42DD}.Release|x64.Build.0 = Release|x64
 		{B27BA389-FDA7-4D46-A863-166CD83D42DD}.Release|x86.ActiveCfg = Release|Win32
 		{B27BA389-FDA7-4D46-A863-166CD83D42DD}.Release|x86.Build.0 = Release|Win32
+		{BFADBB26-99B6-42FB-AC1E-B2BAE84481B4}.Debug|x64.ActiveCfg = Debug|x64
+		{BFADBB26-99B6-42FB-AC1E-B2BAE84481B4}.Debug|x64.Build.0 = Debug|x64
+		{BFADBB26-99B6-42FB-AC1E-B2BAE84481B4}.Debug|x86.ActiveCfg = Debug|Win32
+		{BFADBB26-99B6-42FB-AC1E-B2BAE84481B4}.Debug|x86.Build.0 = Debug|Win32
+		{BFADBB26-99B6-42FB-AC1E-B2BAE84481B4}.Release|x64.ActiveCfg = Release|x64
+		{BFADBB26-99B6-42FB-AC1E-B2BAE84481B4}.Release|x64.Build.0 = Release|x64
+		{BFADBB26-99B6-42FB-AC1E-B2BAE84481B4}.Release|x86.ActiveCfg = Release|Win32
+		{BFADBB26-99B6-42FB-AC1E-B2BAE84481B4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
