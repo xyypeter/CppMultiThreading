@@ -39,6 +39,6 @@ private:
     std::list<std::shared_ptr<Task>> m_taskList;         //任务队列(双向链表)
     std::mutex m_mutexList;                              //保护任务队列(防止并发冲突)
     std::condition_variable m_cv;                        //线程阻塞/唤醒机制(避免繁忙等)
-    bool m_bRunning;                                     //控制线程池是否运行
+    bool m_bRuning;                                      //控制线程池是否运行
     std::vector<std::shared_ptr<std::thread>> m_threads; //存放工作线程
 };

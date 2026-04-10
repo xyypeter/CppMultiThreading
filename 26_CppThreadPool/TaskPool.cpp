@@ -1,90 +1,85 @@
 #include "TaskPool.h"
+#include <functional>
 
-TaskPool::TaskPool():m_bRunning(false){
+TaskPool::TaskPool() :m_bRuning(false) {
 
 }
 
-TaskPool::~TaskPool(){
+TaskPool::~TaskPool() {
     removeAllTasks();
-}
-
-//初始化线程池(关键点如下)
-//1.创建多个线程
-//2.每个线程执行同一个函数 threadFunc
-//3.线程池本质：多个 worker + 一个共享队列
-void TaskPool::init(int threadNum){
-    if (threadNum <= 0)
-        threadNum = 5;
-    m_bRunning = true;
-    //添加工作线程
-    for (int i = 0; i < threadNum; ++i) {
-        std::shared_ptr<std::thread> spThread;
-        //C++11的std::thread类对函数签名没有限制,即使类成员函数是类的实例方法也可以,但是必须显式地将线程函数所属的类对象实例指针
-        spThread.reset(new std::thread(std::bind(&TaskPool::threadFunc, this)));
-        m_threads.push_back(spThread);
-    }
 }
 
 void TaskPool::threadFunc() {
     std::shared_ptr<Task> spTask;
     while (true) {
-        std::unique_lock<std::mutex> guard(m_mutexList);//保护任务队列防止并发冲突
-        while (m_taskList.empty()) {//使用while防止虚假唤醒
-            if (!m_bRunning) 
-                break;
-            //如果获得了互斥锁，但是条件不满足的话(队列为空)，m_cv.wait()调用会释放锁，且挂起当前线程，因此不往下执行
-            //当发生变化后，条件满足，m_cv.wait() 将唤醒挂起的线程，且获得锁
+        std::unique_lock<std::mutex> guard(m_mutexList);
+        while (m_taskList.empty()) {
+            if (!m_bRuning) break;
             m_cv.wait(guard);
-            //本质为
-            //1.释放 mutex
-            //2.挂起线程
-            //3.被唤醒后重新加锁
+            //队列为空条件不满足,m_cv.wait()先释放锁,且挂起当前线程
+            //当发生变化后，条件满足，m_cv.wait() 将唤醒挂起的线程，且获得锁
         }
-        //如果线程池已经停止，直接跳出
-        if (!m_bRunning) 
-            break;
-        //取任务
+        if (!m_bRuning) break;
+        //取出任务
         spTask = m_taskList.front();
         m_taskList.pop_front();
-        if (spTask == NULL) 
-            continue;
-        //此处设计略有缺陷:
-        //1.此时 锁还没释放！
-        //2.所有线程执行任务时都持锁
-        //3.任务执行慢 → 阻塞其他线程取任务
-        //guard.unlock();   // 释放锁(建议添加)
+        //执行任务
+        if (spTask == NULL) continue;
         spTask->doIt();
+        //释放智能指针管理的对象引用计数,但是此处并不是必须的,因为下一次循环spTask会被新的任务覆盖,旧任务会自动释放,更多是编码规范
         spTask.reset();
     }
     std::cout << "exit thread,threadID:" << std::this_thread::get_id() << std::endl;
 }
 
-void TaskPool::stop() {
-    m_bRunning = false;
-    m_cv.notify_all(); //唤醒所有线程让其退出
-    for (auto& iter : m_threads) {
-        if (iter->joinable())
-            iter->join();
+void TaskPool::init(int threadNum) {
+    if (threadNum <= 0)
+        threadNum = 5;
+    m_bRuning = true;
+    //添加工作线程(创建线程并让智能指针管理)
+    for (int i = 0; i < threadNum; i++) {
+        //老式写法
+        //std::shared_ptr<std::thread> spThread;
+        //spThread.reset(new std::thread(std::bind(&TaskPool::threadFunc, this)));
+        //m_threads.push_back(spThread);
+
+        //新写法
+        m_threads.push_back(std::make_shared<std::thread>(&TaskPool::threadFunc, this));
+        //std::thread 的构造函数可以直接接受 成员函数指针 + 对象指针，不需要 std::bind
+        //    &TaskPool::threadFunc 是成员函数指针
+        //    this 是对象指针
+        //    std::thread 会自动调用 this->threadFunc()
+        //std::make_shared<std::thread>(...) 会创建一个 std::shared_ptr<std::thread> 并直接初始化，不需要先声明再 reset。
+        //
     }
 }
 
-//添加任务(生产者)
-//主线程 → addTask → 放任务 → 唤醒 worker
+void TaskPool::stop() {
+    m_bRuning = false;//标志位置为false
+    m_cv.notify_all();//唤醒所有线程让其退出
+    for (auto& iter : m_threads) {
+        if (iter->joinable()) iter->join();
+    }
+}
+
 void TaskPool::addTask(Task* task) {
-    std::shared_ptr<Task> spTask;
-    spTask.reset(task);//任务队列指针管理task指针
+    //老式写法
+    //std::shared_ptr<Task> spTask;
+    //spTask.reset(task);//任务队列指针管理task指针
+
+    //现代写法
+    auto spTask = std::shared_ptr<Task>(task);
     {
         std::lock_guard<std::mutex> guard(m_mutexList);
         m_taskList.push_back(spTask);
-        std::cout << "add a Task." << std::endl;
+        std::cout << "add a Task" << std::endl;
     }
-    // 唤醒一个线程
-    m_cv.notify_one();
+    m_cv.notify_one();//条件变量对象唤醒一个线程
 }
 
-void TaskPool::removeAllTasks(){
+void TaskPool::removeAllTasks() {
     std::lock_guard<std::mutex> guard(m_mutexList);
-    for (auto& iter : m_taskList){
+    for (auto& iter : m_taskList) {
         iter.reset();  // 释放任务
     }
     m_taskList.clear();
